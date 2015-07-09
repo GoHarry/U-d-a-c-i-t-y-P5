@@ -1,9 +1,9 @@
-## Neighborhood Map
+# Neighborhood Map
 
-#Overview:
+##Overview:
 This project was build using a single HTML page. The HTML page contains a Google Map, which displays my neighborhood information on the map with highlighted markers. This also contains temperature box and NY times articles about the desired city.  The map was rendered using knockout and Jquery frameworks, while the popular plaes around my neighborhood are rendered using foursquares framework.  The page also displays weather information of my location.  The functionality on the map is highly interactive, by capturing user choice. Inside my project I have am using a weather api, google maps api, NY Times api and forecast api. <br /><br />
 
-#Instructions on how to use my Neighborhood Map Page.
+##Instructions on how to use my Neighborhood Map Page.
 
 Load the index.html into you chrome browser.
 
@@ -21,7 +21,7 @@ Stores or Bars or Resturant.
 If you change the City/State to other town, the FourSquare suggestions and Temperature and the New York Times articles will show details for that town.
 
 
-#Reference resources
+##Reference resources
 Primary reference when I am stuck: <br />http://stackoverflow.com<br /><br />
 Google Maps API: <br >https://developers.google.com/maps/documentation/javascript/reference<br ><br >
 KnockoutJS:<br >http://knockoutjs.com/documentation/introduction.html<br ><br >
