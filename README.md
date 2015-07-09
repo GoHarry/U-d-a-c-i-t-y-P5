@@ -22,14 +22,25 @@ If you change the City/State to other town, the FourSquare suggestions and Tempe
 
 
 ##Reference resources
-Primary reference when I am stuck: <br />http://stackoverflow.com<br /><br />
-Google Maps API: <br >https://developers.google.com/maps/documentation/javascript/reference<br ><br >
-KnockoutJS:<br >http://knockoutjs.com/documentation/introduction.html<br ><br >
-Foursquare API:<br >https://developer.foursquare.com/start<br ><br >
-Weather Undergroud API:<br >http://www.wunderground.com/weather/api/d/docs<br ><br >
-Wikipedia API:<br >http://www.mediawiki.org/wiki/API:Main_page<br ><br >
-jQuery-UI: http://api.jqueryui.com/autocomplete/<br ><br >
-Foursquare autocomplete plugin:<br > http://josephguadagno.net/post/2012/03/19/Foursquare-Autocomplete-jQuery-Plugin<br ><br >
+*https://twitter.com/udacity 
+*https://developers.google.com/apis-explorer/#p/ 
+*http://www.programmableweb.com/apis/directory 
+*https://www.udacity.com/catalog-api 
+*http://api.jquery.com/jquery.ajax/ 
+*http://api.jquery.com/jquery.getjson/ 
+*http://api.jquery.com/val/ 
+*https://developers.google.com/maps/documentation/streetview/ 
+*http://api.jquery.com/error/ http://en.wikipedia.org/wiki/Cross-origin_resource_sharing 
+*http://www.mediawiki.org/wiki/API:Main_page 
+*http://www.mediawiki.org/wiki/API:Cross-site_requests 
+*http://json-jsonp-tutorial.craic.com/index.html 
+*http://knockoutjs.com/downloads/index.html 
+*http://www.dwuser.com/education/content/why-you-need-a-testing-server-and-how-to-do-it/ 
+*https://www.yelp.com/developers/documentation/v1/search_api 
+*http://developer.nytimes.com/docs 
+*https://foursquare.com/ https://developer.foursquare.com/ 
+*https://developer.forecast.io/ 
+*http://learn.knockoutjs.com/
 
 
 
