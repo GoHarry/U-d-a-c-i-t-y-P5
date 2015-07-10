@@ -112,7 +112,7 @@ function AppViewModel() {
     };
 
 }).error(function(e) {
-    $nytHeaderElem.text('New York Times Articles Could Not Be Loaded');
+    $nytHeaderElem.text('New York Times Articles Could Not Be Loaded. Please check Internet Connection.');
 });
 
 
@@ -152,7 +152,7 @@ function AppViewModel() {
         		$nytElem.append('<li class="article">' + '<a href="'+article.web_url+'">'+article.headline.main+'</a>' + '<p>' + article.snippet + '</p>' + '</li>');
    					};
    		}).error(function(e) {
-    $nytHeaderElem.text('New York Times Articles Could Not Be Loaded');
+    $nytHeaderElem.text('New York Times Articles Could Not Be Loaded. Please check internet connection.');
 });	
 		} 
 		

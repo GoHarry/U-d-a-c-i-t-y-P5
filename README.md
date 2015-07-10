@@ -41,6 +41,10 @@ If you change the City/State to other town, the FourSquare suggestions and Tempe
 * https://foursquare.com/ https://developer.foursquare.com/ 
 * https://developer.forecast.io/ 
 * http://learn.knockoutjs.com/
+* Simple Sidebar plug-in:
+  http://startbootstrap.com/template-overviews/simple-sidebar/
+* Offline plug-in for when internet connection is lost:
+  http://github.hubspot.com/offline/
 
 
 

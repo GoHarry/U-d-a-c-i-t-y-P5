@@ -9,13 +9,19 @@
     <link href="css/bootstrap-theme.css" rel="stylesheet" type="text/css" />
     <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
     <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="css/simple-sidebar.css">
+    <link rel="stylesheet" href="css/offline-theme-dark-indicator.css">
+    <link rel="stylesheet" href="css/offline-language-english-indicator.css">
 
   </head>
   <body>
-    <div class="col-md-12 TopPage">
+    <!-- <div class="col-md-12 TopPage">
       <h1>Neighborhood Map.</h1>    
     </div>
-    <div class="col-md-3">
+    <div class="col-md-3">-->
+  <div class="wrapper" id="wrapper">
+   <div class="col-md-12">
+    <div id="sidebar-wrapper" class="sidebar-wrapper">
       <form class="form" role="form" id="form">
       
         <div class="CityStateInfo">City/State
@@ -71,7 +77,9 @@
 
       </div>
     </div>
-    <div class="col-md-9"> 
+    <!--<div class="col-md-9">-->
+    <div id="page-content-wrapper" class="page-content-wrapper">
+      <h1 class = "TopPage">Neighborhood Map.</h1>  
       <div id="map-canvas"></div>
         <div class="grey">
           <div class="nyTimes">
@@ -80,9 +88,11 @@
           </div>
         </div>
     </div>
+  </div>
     <script src="js/jQuery.js"></script>
     <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places"></script>  
     <script src="js/knockout-3.2.0.js"></script>
     <script src="js/app.js"></script>
+    <script src="js/offline.min.js"></script>
   </body>
 </html>
