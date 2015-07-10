@@ -1,3 +1,4 @@
+
 var Venue = function(data, foursquareID) {
 	
 	this.id = data.venue.id;
@@ -11,7 +12,7 @@ var Venue = function(data, foursquareID) {
 	this.marker = {};
 	this.photoPrefix = 'https://irs0.4sqi.net/img/general/';
 	this.photoPlaceHolder = 'http://placehold.it/100x100';
-	this.photoSuffix = '';
+	this.photoSuffix;
 	this.basePhotoAlbumnURL = 'https://api.foursquare.com/v2/venues/';
 	this.photoAlbumnURL = this.getPhotoAlbumnURL(data, foursquareID);
 	this.formattedPhone = this.getFormattedPhone(data);
@@ -20,12 +21,12 @@ var Venue = function(data, foursquareID) {
 	this.rating = this.getRating(data);
 	this.featuredPhoto = this.getFeaturedPhoto(data);
 
-};
+}
 
 
 Venue.prototype = {
 
-	getPhotoAlbumnURL: function( foursquareID) {
+	getPhotoAlbumnURL: function(data, foursquareID) {
 		return this.basePhotoAlbumnURL + this.id + '/photos?' + foursquareID + '&v=20130815';
 	},
 
@@ -65,7 +66,7 @@ Venue.prototype = {
   			return this.photoPrefix + 'width100' + this.photoSuffix;
 		}
 	}
-};
+}
 
 function AppViewModel() {
 
@@ -76,8 +77,11 @@ function AppViewModel() {
 		placeLon,
 		bounds,
 		service,
+		marker,
 		infowindow;
 
+	var venueMarkers = [];
+	var defaultExploreKeyword = 'best nearby';
 	var defaultNeighborhood = 'Hicksville';
 	var months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
 
@@ -105,9 +109,9 @@ function AppViewModel() {
     for (var i = 0; i < articles.length; i++) {
         var article = articles[i];
         $nytElem.append('<li class="article">' + '<a href="'+article.web_url+'">'+article.headline.main+'</a>' + '<p>' + article.snippet + '</p>' + '</li>');
-    }
+    };
 
-}).error(function() {
+}).error(function(e) {
     $nytHeaderElem.text('New York Times Articles Could Not Be Loaded. Please check Internet Connection.');
 });
 
@@ -119,15 +123,15 @@ function AppViewModel() {
 
 	
   	ko.bindingHandlers.afterHtmlRender = {
-		update: function( va, ab) {
+		update: function(el, va, ab) {
 			ab().html && va()(ab().html);
 		}
-	};
+	}
 
 
 	self.updateVObservable = function() {
 		self.displayVenuesList(!self.displayVenuesList());
-	};
+	}
 
 	self.computedNeighborhood = function() {
 
@@ -146,8 +150,8 @@ function AppViewModel() {
     			for (var i = 0; i < articles.length; i++) {
         		var article = articles[i];
         		$nytElem.append('<li class="article">' + '<a href="'+article.web_url+'">'+article.headline.main+'</a>' + '<p>' + article.snippet + '</p>' + '</li>');
-   					}
-   		}).error(function() {
+   					};
+   		}).error(function(e) {
     $nytHeaderElem.text('New York Times Articles Could Not Be Loaded. Please check internet connection.');
 });	
 		} 
@@ -175,7 +179,7 @@ function AppViewModel() {
 		map.panTo(venuePosition);
 		selectedMarkerBounce(venue.marker);
 
-	};
+	}
 
 
 	function removeVenueMarkers() {
@@ -239,7 +243,7 @@ function AppViewModel() {
 		self.selectedMarker().setAnimation(null); 
 		});
 
-	}
+	};
 
 
  	function getFoursquareData() {
@@ -268,7 +272,7 @@ function AppViewModel() {
 
 
 				var tempBounds = data.response.suggestedBounds;
-				if (tempBounds !== undefined) {
+				if (tempBounds != undefined) {
 					bounds = new google.maps.LatLngBounds(
 						new google.maps.LatLng(tempBounds.sw.lat, tempBounds.sw.lng),
 						new google.maps.LatLng(tempBounds.ne.lat, tempBounds.ne.lng));
@@ -279,7 +283,7 @@ function AppViewModel() {
 				if(self.topPicks().length === 0)
 				 	$('#foursquare-API-error').html('<h2>No result available.</h2><h2>Please change your keywords.</h2>');
 			},
-      		error: function( ) {
+      		error: function( data ) {
       			$('#foursquare-API-error').html('<h2>There are errors when retrieving venue data. Please try refresh page later.</h2>');
       		}	     		
 		});
@@ -308,7 +312,7 @@ function AppViewModel() {
 				}
 			},
 
-      		error: function( ) {
+      		error: function( data ) {
       			$('#foursquare-API-error').html('<h2>There are errors when retrieving venue photo albumns. Please try refresh page later.</h2>');
       		}
 		});
@@ -336,7 +340,7 @@ function AppViewModel() {
 			success: function(data) {
 
 				var initialForecastDailyData = data.daily.data;
-					initialForecastDailyData.forEach(function(){
+					initialForecastDailyData.forEach(function(forecastItem){
 
 				});
 
@@ -345,37 +349,37 @@ function AppViewModel() {
 
       		error: function( data ) {
       			$('.current-temp-box').html('<p>Error retrieving forecast data! Try refresh page later.</p>');
-      			$('#forecast-API-error').html('<h2>There are errors when retrieving forecast data. Please try refresh page later.</h2>' +
-      											 '<p>Status: ' + data.status + '</p>' +
-      											 '<p>Error Type: ' + data.statusText + '</p>');
+      			$('#forecast-API-error').html('<h2>There are errors when retrieving forecast data. Please try refresh page later.</h2>' 
+      											+ '<p>Status: ' + data.status + '</p>'
+      											+ '<p>Error Type: ' + data.statusText + '</p>');
       		}
 		});
 	}
 
 
 	function setVenueInfowindowStr(venue) {
-			var contentString = '<div class="venue-infowindow">' +
-							 '<div class="venue-name">' +
-							 '<a href ="' + venue.foursquareUrl + '">' +
-							 venue.name +
-							 '</a>' +
-							 '<span class="venue-rating badge">' +
-							 venue.rating +
-							 '</span>' +
-							 '</div>' +
-							 '<div class="venue-category">' +
-							 venue.categories +
-							 '</div>' +
-							 '<div class="venue-address">' +
-							 venue.formattedAddress +
-							 '</div>' +
-							 '<div class="venue-contact">' +
-							 venue.formattedPhone +
-							 '</div>'  +
-							 '<div class="venue-url">' +
-							 venue.url +
-							 '</div>'  +						    						    						
-							 '</div>';
+			var contentString = '<div class="venue-infowindow">' 
+							+ '<div class="venue-name">'
+							+ '<a href ="' + venue.foursquareUrl + '">'
+							+ venue.name
+							+ '</a>'
+							+ '<span class="venue-rating badge">'
+							+ venue.rating
+							+ '</span>'
+							+ '</div>'
+							+ '<div class="venue-category">'
+							+ venue.categories
+							+ '</div>'
+							+ '<div class="venue-address">'
+							+ venue.formattedAddress
+							+ '</div>'
+							+ '<div class="venue-contact">'
+							+ venue.formattedPhone
+							+ '</div>'  
+							+ '<div class="venue-url">'
+							+ venue.url
+							+ '</div>'  						    						    						
+							+ '</div>';
 
 		return	contentString;
 
@@ -420,7 +424,7 @@ function AppViewModel() {
 
 	function selectedMarkerBounce(venueMarker) {
 
-		if (venueMarker.getAnimation() === null) {
+		if (venueMarker.getAnimation() == null) {
 
 			self.selectedMarker(venueMarker);
 
@@ -490,10 +494,10 @@ function AppViewModel() {
 		
 		$('#map-canvas').height($(window).height());
 
-	}
+	};
 
 
-	window.addEventListener('resize', function() {
+	window.addEventListener('resize', function(e) {
     	
 		map.fitBounds(bounds);
     	
@@ -505,7 +509,7 @@ function AppViewModel() {
 
 	initializeNeighborhood(defaultNeighborhood);
 
-}
+};
 
 $(function() {
 
