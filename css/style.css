@@ -1,241 +1,362 @@
-*
-
-body {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
+/* Global styles. */
+* {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+	font: 100%/1.5em "Roboto", sans-serif;
 }
 
-.CityStateInfo{
- color: #fff;
- background: #003399;
-  margin-top:5px;
-  font-size:14px;
-  font-weight:300;
-  width:100px;
-  
+/* Blue header for show_hide titles */
+.runningText{
+	background-color:blue; 
+	color:#fff;
+	font-weight:600
 }
-.InputForm{
-  width: 250px;
-  color: #000;
-}
-
-.TempInfo{
- color: #fff;
- background: #003399;
-  font-size:14px;
-  font-weight:300;
-  width:200px;
+/* General styles */
+li,
+.ui-widget-header {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	background-color: #fff;
 }
 
-.border{
-    border-style: solid;
-    border-width: 1px;
-    border-color: #a9a9a9;
-    border-spacing: 10px;
-    width: 250px;
+.places,
+.wikis,
+.ui-menu {
+	list-style: none;
+	overflow-y: auto;
+	overflow-x:	hidden;
 }
 
-.temp{
-  float: left;
+.wikis,
+.places,
+.foursquare-logo,
+.weather,
+.ui-widget {
+	position: fixed;
 }
 
-.TopPage{
-  background: #003399;
-  color: #fff;
-  margin-top: 0px;
-  padding-top: 0px;
+.ui-autocomplete-input,
+.search-button {
+	height: 2.25em;
 }
 
-.form{
-  padding-bottom: 10px;
-  width: 400px;
-  float: left;
-  margin-left: 10px;
+/*.foursquare-logo,*/
+.places {
+	left: 0;
 }
 
-.nyTimes{
-  padding-top:  5px;
-  background-color: #ccc;
+.foursquare-logo{
+	left: 0;
 }
-.Pic{
-  width: 50px;
-  height: 50px;
-  float: right;
-}
-.grey{
-  background-color: #ccc;
-}
-#map-canvas {
-  width: 100%;
-  height: 50%;
-  overflow: hidden;
-}
-.left{
-  float:left;
-  font-size:14px;  
-  width:110px;
-}
-.venues-listing-box{
-  overflow-x: hidden;
-  display:block;
-  margin-top:5px;
-  width:315px;
-  height: 750px;
-  background: #FFCCFF
-}
-.venues-listing-box .venue-listing-item{
-  padding: 10px;
-  border-bottom: 1px solid #f4f4f4;
-}
-.venues-listing-box::-webkit-scrollbar {
-  width: 10px;
-  overflow: visible;
-}
-.venues-listing-box::-webkit-scrollbar-thumb {
-  background-color: #000;
-  min-height: 30px;
-}
-
-.venue-listing-item:visited,
-.venue-listing-item:hover,
-.venue-listing-item:active{
-  background:#003399;
-  color: #fff;
-}
-
-.venues-listing-box .selected-venue-item{
-  background:#003399;
-  color: #fff;
-}
-
-.venue-listing-item {
-  padding-right: 5px;
-  float:left;
-  clear:left;
-padding-bottom: 10px;
-}
-
-.venue-listing-item .content{
-  word-wrap: break-word;
-  float:left;
-  width:280px;
-}
-
-.venue-listing-item .left{
-  width:70%;
-  float:left;
-}
-
-.venue-listing-item .left .venue-name{
-  font-size: 15px;
-  font: bold;
-  line-height: 10px;
-  margin-bottom: 5px;
-}
-
-.venue-listing-item .left .venue-sub{
-  margin-bottom:10px;
-}
-
-.venue-listing-item .left .venue-sub .venue-rating{
-  float:left;
-  font-size: 15px;
-  font-weight:300;
-  clear:right;
-}
-
-.venue-listing-item .left .venue-sub .venue-address{
-  width:230px;
-  padding-left:10px;
-  float:left;
-  font-size: 12px;
-}
-
-.venue-listing-item .left .venue-category,
-.venue-listing-item .left .venue-website,
-.venue-listing-item .left .venue-review,
-.venue-listing-item .left .venue-contact{
-  font-size: 12px;
-}
-
-.venue-listing-item .Pic{
-  width:30%;
-}
-
-.venue-listing-item .Pic .featured-photo{
-  padding: 10px;
-  float:right;
-}
-
-.venue-infowindow{
-  font-size:16px;
-  font-weight: 400;
-  max-width: 200px;
- margin-right:5px;
-}
-
-.venue-infowindow .venue-rating{
-  margin-left:5px;
-}
-
-
-@media only screen and (max-width : 768px) {
-
-
-  .search-button{
-    display:none;
-  }
-
-  .group{
-    margin-bottom:5px;
-  }
-
-.left{
-    display:none;
-  }
-.left{
-    font-size:20px;
-  }
-.venues-listing-box{
-    width:100%;
-  }
-
-  .venue-listing-item .left .venue-sub .venue-address{
-    width:70%;
-  }
-
-  .venue-listing-item .content{
-    word-wrap: break-word;
-    width:90%;
-  }
-
-}
-
-@media only screen and (max-width : 320px) {
-
-  .venues-listing-box{
-    max-width: 310px;
-  }
-  
-  .venue-listing-item .left{
-    width:60%;
-  }
-  .venue-listing-item .Pic{
-    width:40%;
-  }
-
-  .venue-listing-item .left .venue-sub .venue-address{
-    width:60%;
-  }
-
-  .venue-listing-item .content{
-    word-wrap: break-word;
-    width:80%;
-  }
-
+.search,
+.ui-widget,
+.places {
+	top: 0;
 }
 
 
 
+.item,
+.weather-details {
+	background: #3ff;
+}
 
+.search-button,
+.selected {
+	color: #3f9;
+}
+
+/* Required styles for the map to display. */
+html,
+body,
+.map {
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	top: 0;
+}
+
+/* Header styles. */
+h1 {
+	background: #ffa500;
+	cursor: pointer;
+}
+
+/* Map infowindow styles. */
+.content {
+	width: 10em;
+	padding: 0 .75em 0 0;
+}
+
+/* Search styles. */
+.ui-widget {
+	display: inline;
+	left: 25%;
+	width: 50%;
+}
+
+.search-button {
+	width: 2.25em;
+	background: #00f;
+	vertical-align: top;
+	cursor: pointer;
+}
+
+/* Autocomplete styles. */
+.ui-autocomplete-input {
+	width: 90%;
+}
+
+.ui-menu {
+	width: 22.5%;
+	max-height: 80%;
+}
+
+.ui-menu-icon {
+	height: 1.6em;
+	width: 1.6em;
+	float: left;
+}
+
+.ui-widget-header {
+	margin-bottom: .5em;
+}
+
+/* Wikis section styles. */
+.foursquare-logo {
+	bottom: 3%;
+}
+
+.wikis {
+	top: 0%;
+	right: 0%;
+}
+
+/* Wiki and places list styes. */
+.list {
+	background: #63f;
+	max-width: 13em;
+	padding: .8125em;
+}
+
+.item {
+	font: bold .75em/1.5em "Roboto", sans-serif;
+	max-height: 2.375em;
+	margin: .4em 0;
+	padding: .75em .5em 2em;
+	cursor: pointer;
+}
+
+/* Places section styles. */
+.filter {
+	width: 100%;
+}
+
+.selected {
+	background: #789 !important;
+}
+
+.foursquare-logo {
+	bottom:	.6%;
+}
+
+/* Weather section styles. */
+.weather {
+	bottom: 0;
+	right: 44%;
+}
+
+.weather-details {
+	display: -webkit-flex;
+	display: flex;
+}
+
+.temp {
+	padding: 1.5em .5em;
+}
+
+/* Media query styles */
+@media screen and (max-width: 479px) {
+	.ui-widget {
+		width: 50%;
+		left: 25%;
+	}
+
+	.weather {
+		max-width: 48%;
+		max-height: 50%;
+	}
+
+	.places,
+	.wikis {
+		max-height: 80%;
+		max-width: 25%
+	}
+
+	.ui-autocomplete-input,
+	.search-button {
+		height: 1.5em;
+	}
+
+	.search-button {
+		width: 1.5em;
+	}
+
+	.ui-widget-header {
+		font: .6em/1.5em "Roboto", sans-serif;
+	}
+
+	.ui-menu-icon {
+		height: .95em;
+		width: .95em;
+	}
+
+	.weather-details {
+		display: block;
+		font: .8em/1.5em "Roboto", sans-serif;
+	}
+
+	.foursquare-logo,
+	.wikis,
+	.weather {
+		bottom: 8%;
+	}
+
+.weather {
+		right: 33%;
+		max-height: 20%;
+		max-width: 50%;
+		z-index: 1;
+	}
+}
+
+
+
+
+@media screen and (min-width: 480px) and (max-width: 639px) {
+
+	.places,
+	.wikis {
+		max-width: 25%;
+		max-height: 82%;
+		z-index: 2;
+
+	}
+
+	.ui-widget {
+		width: 50%;
+		left: 25%;
+	}
+
+	.ui-menu-icon {
+		height: 1.3em;
+		width: 1.3em;
+	}
+
+	.ui-widget-header {
+		font: .8em/1.5em "Roboto", sans-serif;
+	}
+
+	.foursquare-logo,
+	.weather {
+		bottom: 5%;
+		left: 33%;
+	}
+
+	
+	.weather {
+		right: 20%;
+		max-height: 25%;
+		max-width: 75%;
+		z-index: 1;
+	}
+
+	.weather-details {
+		font: .8em/1.5em "Roboto", sans-serif;
+	}
+
+	
+	.temp {
+		padding: 1.75em .5em 0;
+	}
+}
+
+@media screen and (min-width: 640px) and (max-width: 768px) {
+
+	.places,
+	.wikis {
+		max-width: 25%;
+		max-height: 82%;
+		z-index: 2;
+
+	}
+
+	.ui-widget {
+		left: 25%;
+		width: 50%;
+	}
+
+	.weather {
+		right: 29.5%;
+		max-width: 50%;
+	}
+
+	.weather-details {
+		font: .8em/1.5em "Roboto", sans-serif;
+	}
+
+
+
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+	.ui-widget {
+		left: 25%;
+		width: 50%;
+	}
+
+	.weather {
+		right: 33%;
+	}
+
+	.foursquare-logo {
+		bottom: 4%;
+	}
+
+	.places {
+		max-height: 90%;
+	}
+}
+
+@media screen and (max-width: 1136px) {
+	h1 {
+		padding: .5em;
+		font: 1em/1.5em "Roboto", sans-serif;
+	}
+
+	.ui-widget,
+	.places {
+		top: 0;
+	}
+
+	.ui-autocomplete-input {
+		width: 80%;
+	}
+
+	.ui-menu {
+		width: 45%;
+	}
+
+	.foursquare-logo {
+		bottom: 2%;
+		width: 12em;
+	}
+}

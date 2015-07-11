@@ -1,51 +1,26 @@
 # Neighborhood Map
+Neighborhood map project for Udacity nanodegree
 
-##Overview:
-This project was build using a single HTML page. The HTML page contains a Google Map, which displays my neighborhood information on the map with highlighted markers. This also contains temperature box and NY times articles about the desired city.  The map was rendered using knockout and Jquery frameworks, while the popular plaes around my neighborhood are rendered using foursquares framework.  The page also displays weather information of my location.  The functionality on the map is highly interactive, by capturing user choice. Inside my project I have am using a weather api, google maps api, NY Times api and forecast api. <br /><br />
+## Overview:
+This project was build using a single HTML page.  All the interactions on this page were built/developed using multiple frameworks.<br /><br />
+The HTML page contains a Google Map, which displays my neighborhood information on the map with highlighted markers.  The map was rendered using knockout and Jquery frameworks, while the popular plaes around my neighborhood are rendered using foursquares framework.  The page also displays weather information of my location.  The functionality on the map is highly interactive, by capturing user choice and display further information in wikipedia.  
 
-##Instructions on how to use my Neighborhood Map Page.
+## Instructions on how to use my Neighborhood Map Page.
 
-Load the index.html into you chrome browser.
+* Load the index.html into you chrome browser.
+* Default location is hicksville as I live there.  
+* Temperature details of hicksville is also shown in the temperature box at the bottom of the map.
+* On left side of map, FourSquare top picks for Hicksville and right side you will see wikipedia articles about Hicksville.
+* If you click on one of the FourSquare suggestions you will see detail about it on the map.
+* Weatherbox, wiki items and foursquare list items are all collapsable for better view in small screen devices.
+* Search the restaurants by typing in search box and map will show you the location.
 
-Default location is hicksville as I live there.  There is a google map with a star in the center of it.
-
-Temperature details of hicksville is also shown in the temperature box.
-
-Below temperature box, you will see FourSquare top picks for Hicksville and below the Map you will see New York Times articles about Hicksville.
-
-If you click on one of the FourSquare suggestions you will see detail about it on the map.
-
-You can change the City and State and you can also put in suggestions to narrow your FourSquare suggestions by typing something like, Pizza or
-Stores or Bars or Resturant.
-
-If you change the City/State to other town, the FourSquare suggestions and Temperature and the New York Times articles will show details for that town.
-
-
-##Reference resources
-* https://twitter.com/udacity 
-* https://developers.google.com/apis-explorer/#p/ 
-* http://www.programmableweb.com/apis/directory 
-* https://www.udacity.com/catalog-api 
-* http://api.jquery.com/jquery.ajax/ 
-* http://api.jquery.com/jquery.getjson/ 
-* http://api.jquery.com/val/ 
-* https://developers.google.com/maps/documentation/streetview/ 
-* http://api.jquery.com/error/ http://en.wikipedia.org/wiki/Cross-origin_resource_sharing 
-* http://www.mediawiki.org/wiki/API:Main_page 
-* http://www.mediawiki.org/wiki/API:Cross-site_requests 
-* http://json-jsonp-tutorial.craic.com/index.html 
-* http://knockoutjs.com/downloads/index.html 
-* http://www.dwuser.com/education/content/why-you-need-a-testing-server-and-how-to-do-it/ 
-* https://www.yelp.com/developers/documentation/v1/search_api 
-* http://developer.nytimes.com/docs 
-* https://foursquare.com/ https://developer.foursquare.com/ 
-* https://developer.forecast.io/ 
-* http://learn.knockoutjs.com/
-* Simple Sidebar plug-in:
-  http://startbootstrap.com/template-overviews/simple-sidebar/
-* Offline plug-in for when internet connection is lost:
-  http://github.hubspot.com/offline/
-
-
-
-
+## Reference resources
+* http://stackoverflow.com
+* Google Maps API: <br >https://developers.google.com/maps/documentation/javascript/reference
+* KnockoutJS:<br >http://knockoutjs.com/documentation/introduction.html
+* Foursquare API:<br >https://developer.foursquare.com/start
+* Weather Undergroud API:<br >http://www.wunderground.com/weather/api/d/docs
+* Wikipedia API:<br >http://www.mediawiki.org/wiki/API:Main_page
+* jQuery-UI: <br >http://api.jqueryui.com/autocomplete
+* Foursquare autocomplete plugin:<br > http://josephguadagno.net/post/2012/03/19/Foursquare-Autocomplete-jQuery-Plugin
